@@ -39,14 +39,17 @@ active = True
 
 while active:
     program_name = "Geometry Calculator"
-    print(program_name.center(50))
+    print(program_name.center(34))
+    print("---------------------------------")
     print("1. Calculate Circle Area")
     print("2. Calculate Circle Circumference")
     print("3. Calculate Rectangle Area")
     print("4. Calculate Rectangle Perimeter")
     print("5. Exit")
+    print()
 
     choice = input("Please enter your choice (1-5): ")
+    print()
 
     #First choice
     if choice == "1":
@@ -58,7 +61,9 @@ while active:
                 radius = float(radius)
                 break
         result = a1(radius)
-        print(f"The area of the circle is {round(result, 3)}")
+        print(f"The area of the circle is {round(result, 3)}.")
+        print()
+        input("Press Enter to continue...")
 
     #Second choice
     elif choice == "2":
@@ -71,6 +76,8 @@ while active:
                 break
         result = circumference(radius)
         print(f"The circumference of the circle is {round(result, 3)}")
+        print()
+        input("Press Enter to continue...")
 
     #Third choice
     elif choice == "3":
@@ -88,6 +95,8 @@ while active:
 
         result = a2(width, height)
         print(f"The area of the rectangle is {round(result, 3)}")
+        print()
+        input("Press Enter to continue...")
 
     #fourth choice
     elif choice == "4":
@@ -105,8 +114,12 @@ while active:
 
         result = perimeter(width, height)
         print(f"The perimeter of the rectangle is {round(result, 3)}")
+        print()
+        input("Press Enter to continue...")
 
     #fifth choice
     else:
         print("Goodbye!")
         break
+
+    print()

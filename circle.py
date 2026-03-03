@@ -10,7 +10,7 @@ import math
 
 #Calculates the area of a circle
 def area(radius):
-    return math.pi * radius ** 2
+    return math.pi * (radius ** 2)
 
 #Calculate the perimeter of a circle
 def circumference(radius): 

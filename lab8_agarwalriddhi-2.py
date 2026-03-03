@@ -1,9 +1,17 @@
 """
 Program name: Geometry calculator
 Name: Riddhi Agarwal
-Purpose of program: To calculate area and perimeter of a circle and a rectangle
+Date: March 3, 2026
 Starter code: None
-Date: March 2, 2026
+
+Purpose of program: 
+To calculate area and perimeter of a circle and a rectangle.
+The user can choose from a menu to calculate:
+
+1. Area of a circle
+2. Circumference of a circle
+3. Area of a rectangle
+4. Perimeter of a rectangle
 """
 
 from circle import circumference
@@ -16,9 +24,22 @@ from rectangle import area as a2
 #Without aliases, Python wouldn't know which "area" function to call
 #We can avoid name conflict by calling the function after the module name
 
-#Function to check if the number is valid; Check if it's not negative, it doesn't have text or more than one decimal point
 def pos_value(number):
-    decimal_count = 0
+    """
+    This function validates user input to ensure it is a positive number.
+
+    It checks:
+    - If the number contains only digits and at most one decimal point
+    - Doesn't contain letters or special characters
+    - Is greater than 0
+
+    Parameters:
+        number (str): The user input that needs to be validated
+    Returns:
+        boolean: True if user input is a valid positive number, otherwise False
+    """
+
+    decimal_count: int = 0
 
     for char in number:
         if char == ".":
@@ -33,9 +54,13 @@ def pos_value(number):
 
     if float(number) > 0:
         return True
+    
+    else:
+        print("Please enter a number greater than 0.")
+        return False
 
-#Flag variable
-active = True
+#Controls main program loop
+active: bool = True
 
 while active:
     program_name = "Geometry Calculator"
@@ -48,71 +73,71 @@ while active:
     print("5. Exit")
     print()
 
-    choice = input("Please enter your choice (1-5): ")
+    choice: str = input("Please enter your choice (1-5): ")
     print()
 
-    #First choice
+    #Option 1: Calculate circle area
     if choice == "1":
-        #Check if the number is positive
+        #Validate the radius
         while True:
-            radius = input("Enter the radius of the circle: ")
+            radius: str = input("Enter the radius of the circle: ")
             
             if pos_value(radius):
                 radius = float(radius)
                 break
-        result = a1(radius)
+        result: float = a1(radius)
         print(f"The area of the circle is {round(result, 3)}.")
         print()
         input("Press Enter to continue...")
 
-    #Second choice
+    #Option 2: Calculate Circle Circumference
     elif choice == "2":
-        #Check if the number is positive
+        #Validate the radius
         while True:
-            radius = input("Enter the radius of the circle: ")
+            radius: str = input("Enter the radius of the circle: ")
 
             if pos_value(radius):
                 radius = float(radius)
                 break
-        result = circumference(radius)
+        result: float = circumference(radius)
         print(f"The circumference of the circle is {round(result, 3)}")
         print()
         input("Press Enter to continue...")
 
-    #Third choice
+    #Option 3: Calculate Rectangle Area
     elif choice == "3":
-        #Check if the numbers are positive
+        #Validate the width and height
         while True:
-            width = input("Enter the width of the rectangle: ")
+            width: str = input("Enter the width of the rectangle: ")
             if pos_value(width):
                 width = float(width)
                 break
         while True:
-            height = input("Enter the height of the rectangle: ")
+            height: str = input("Enter the height of the rectangle: ")
             if pos_value(height):
                 height = float(height)
                 break
 
-        result = a2(width, height)
+        result: float = a2(width, height)
         print(f"The area of the rectangle is {round(result, 3)}")
         print()
         input("Press Enter to continue...")
 
-    #fourth choice
+    #Option 4: Calculate Rectangle Perimeter
     elif choice == "4":
-        #Check if the numbers are positive
+        #Validate the width and height
         while True:
-            width = input("Enter the width of the rectangle: ")
+            width: str = input("Enter the width of the rectangle: ")
             if pos_value(width):
                 width = float(width)
                 break
         while True:
-            height = input("Enter the height of the rectangle: ")
+            height: str = input("Enter the height of the rectangle: ")
             if pos_value(height):
                 height = float(height)
                 break
 
-        result = perimeter(width, height)
+        result: float = perimeter(width, height)
         print(f"The perimeter of the rectangle is {round(result, 3)}")
         print()
         input("Press Enter to continue...")

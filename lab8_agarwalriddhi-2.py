@@ -14,10 +14,8 @@ The user can choose from a menu to calculate:
 4. Perimeter of a rectangle
 """
 
-from circle import circumference
-from rectangle import perimeter
-from circle import area as a1
-from rectangle import area as a2
+import circle
+import rectangle
 
 #Both circle and rectangle have a function named "area" and a function names "perimeter."
 #So aliases are necessary to avoid name conflict.
@@ -52,6 +50,10 @@ def pos_value(number):
         print("Please enter a valid number.")
         return False
 
+    if number == ".":
+        print("Please enter a valid number.")
+        return False
+    
     if float(number) > 0:
         return True
     
@@ -85,7 +87,7 @@ while active:
             if pos_value(radius):
                 radius = float(radius)
                 break
-        result: float = a1(radius)
+        result: float = circle.area(radius)
         print(f"The area of the circle is {round(result, 3)}.")
         print()
         input("Press Enter to continue...")
@@ -99,7 +101,7 @@ while active:
             if pos_value(radius):
                 radius = float(radius)
                 break
-        result: float = circumference(radius)
+        result: float = circle.circumference(radius)
         print(f"The circumference of the circle is {round(result, 3)}")
         print()
         input("Press Enter to continue...")
@@ -118,7 +120,7 @@ while active:
                 height = float(height)
                 break
 
-        result: float = a2(width, height)
+        result: float = rectangle.area(width, height)
         print(f"The area of the rectangle is {round(result, 3)}")
         print()
         input("Press Enter to continue...")
@@ -137,7 +139,7 @@ while active:
                 height = float(height)
                 break
 
-        result: float = perimeter(width, height)
+        result: float = rectangle.perimeter(width, height)
         print(f"The perimeter of the rectangle is {round(result, 3)}")
         print()
         input("Press Enter to continue...")
